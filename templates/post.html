@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - 내 블로그{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<div class="post-date">{{ post.created_at.strftime('%Y년 %m월 %d일 %H:%M') }}</div>
+
+<div style="margin: 30px 0; line-height: 1.8;">
+    {{ post.content|replace('\n', '<br>')|safe }}
+</div>
+
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+    <a href="/" style="text-decoration: none; color: #007bff;">← 목록으로 돌아가기</a>
+    
+    <form method="post" action="/delete/{{ post.id }}" style="display: inline; margin-left: 20px;">
+        <button type="submit" class="delete-btn" onclick="return confirm('정말 삭제하시겠습니까?')">
+            삭제
+        </button>
+    </form>
+</div>
+{% endblock %}

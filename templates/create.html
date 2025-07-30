@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}새 글 작성 - 내 블로그{% endblock %}
+
+{% block content %}
+<h1>새 글 작성</h1>
+
+<form method="post" action="/create">
+    <div>
+        <input type="text" name="title" placeholder="제목을 입력하세요" required>
+    </div>
+    
+    <div>
+        <textarea name="content" placeholder="내용을 입력하세요" required></textarea>
+    </div>
+    
+    <div>
+        <button type="submit">글 발행</button>
+        <a href="/" style="margin-left: 10px; text-decoration: none; color: #666;">취소</a>
+    </div>
+</form>
+{% endblock %}
